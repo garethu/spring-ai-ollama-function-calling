@@ -20,7 +20,7 @@ public class FunctionConfiguration {
     public record BookingRequest(Long id, String firstName, String lastName) {}
 
     @Bean
-    @Description("Get booking details and information")
+    @Description("Get booking details by id, which should be an integer, first name and last name")
     public Function<BookingRequest, BookingRecord> getBookingDetails() {
         return request -> {
             Booking booking = bookingService.getBookingByIdAndFirstNameAndLastName(request.id(), request.firstName(), request.lastName());

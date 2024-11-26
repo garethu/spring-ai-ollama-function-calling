@@ -25,12 +25,13 @@ public class BookingService {
     }
     public Booking getBookingByIdAndFirstNameAndLastName(Long id, String firstName, String lastName) {
         System.out.println("### GRU BookingService : getBookingByIdAndFirstNameAndLastName --- ID: " + id + " -- firstName: " + firstName + " -- lastName: " + lastName);
+
         Booking booking = bookingRepository.findByIdAndFirstNameIgnoreCaseAndLastNameIgnoreCase(id, firstName, lastName);
         if (booking == null) {
-            System.out.println("Booking service: Booking not found with id: " + id+ " -- firstName: " + firstName + " -- lastName: " + lastName);
+            System.out.println("### ### GRU Booking service: Booking not found with id: " + id+ " -- firstName: " + firstName + " -- lastName: " + lastName);
             return null;
         } else {
-            System.out.println("Booking found with id: " + id+ " -- firstName: " + firstName + " -- lastName: " + lastName);
+            System.out.println("### ### GRU Booking found with id: " + id+ " -- firstName: " + firstName + " -- lastName: " + lastName);
             return booking;
         }
     }
